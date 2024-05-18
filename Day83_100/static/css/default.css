@@ -1,0 +1,51 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+}
+
+/* Container for the content */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Blog heading */
+h1 {
+    color: #0000ff;
+    font-size: 24px;
+}
+
+/* Date styling */
+.date {
+    color: #888888;
+    font-size: 15px;
+}
+
+/* Content styling */
+.content {
+    font-size: 16px;
+    color: #333333;
+}
+
+/* Footer section */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #f0f0f0;
+    color: #666666;
+}
+
+/* Styling links */
+a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

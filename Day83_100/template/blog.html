@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/' + theme + '.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ heading }}</h1>
+        <p class="date"><em>Date: {{ date }}</em></p>
+        <div class="content">{{ content }}</div>
+    </div>
+    <footer>
+        <p>Thank you for visiting my blog!</p>
+    </footer>
+</body>
+</html>
