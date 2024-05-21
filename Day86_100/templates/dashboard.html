@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ session['username'] }}</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <h2>Add New Post</h2>
+        <form method="post" action="{{ url_for('add_post') }}">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"><br>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content"></textarea><br>
+            <button type="submit">Add Post</button>
+        </form>
+        <h2>Your Posts</h2>
+        {% for post in posts %}
+            <h3>{{ post['title'] }}</h3>
+            <p>{{ post['content'] }}</p>
+            <p><small>{{ post['date'] }}</small></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
