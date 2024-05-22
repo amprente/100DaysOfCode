@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blog Feed</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Feed</h1>
+        <a href="{{ url_for('login') }}">Login</a>
+        {% for post in posts %}
+            <h3>{{ post['title'] }}</h3>
+            <p>{{ post['content'] }}</p>
+            <p><small>{{ post['date'] }}</small></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
