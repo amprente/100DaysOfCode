@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+</head>
+<body>
+    <h1>Chat Room</h1>
+    <div>
+        <h2>Welcome, {{ username }}</h2>
+        <img src="https://source.unsplash.com/random/50x50?profile" alt="Profile Picture">
+    </div>
+    <div>
+        <h3>Messages</h3>
+        <ul>
+            {% for timestamp, message in messages %}
+                <li>
+                    <img src="{{ message['profile_pic'] }}" alt="Profile Picture" width="30" height="30">
+                    <strong>{{ message['username'] }}:</strong> {{ message['message'] }}
+                    {% if admin %}
+                        <form action="/delete/{{ timestamp }}" method="post" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <form action="/chat" method="post">
+        <input type="text" name="message" required>
+        <button type="submit">Send</button>
+    </form>
+    <a href="/logout">Logout</a>
+</body>
+</html>
