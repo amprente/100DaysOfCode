@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Find Songs by Year</h1>
+    <form method="POST">
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required>
+        <input type="hidden" name="offset" value="{{ offset }}">
+        <button type="submit">Go</button>
+    </form>
+    {% if songs %}
+        <h2>Songs from {{ year }}</h2>
+        <ul>
+            {% for song in songs %}
+                <li>
+                    {{ song.name }} by {{ song.artist }}
+                    {% if song.preview_url %}
+                        <audio controls>
+                            <source src="{{ song.preview_url }}" type="audio/mpeg">
+                        </audio>
+                    {% else %}
+                        No preview available
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <form method="POST">
+            <input type="hidden" name="year" value="{{ year }}">
+            <input type="hidden" name="offset" value="{{ offset + 10 }}">
+            <button type="submit">Next 10</button>
+        </form>
+    {% endif %}
+</body>
+</html>
